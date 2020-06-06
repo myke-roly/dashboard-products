@@ -1,0 +1,33 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Tahoma, sans-serif;
+}
+
+body {
+  font-size: .7em;
+  background: $primary;
+}
+
+ul  {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  padding: .5rem 1rem;
+  border: 2px solid #000;
+  color: #000;
+  background: transparent;
+}
+
+img {
+  width: 100%;
+}
