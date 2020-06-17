@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 0 1rem;
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: bold;
+      text-transform: uppercase;
+    }
+
+    button {
+      margin-left: .5rem;
+      color: white;
+      padding: .3rem .5rem;
+      background: #000;
+      font-size: .9em;
+      border: 2px solid #000;
+      cursor: pointer;
+
+      &:hover {
+        background-color: white;
+        color: #333;
+      }
+    }
+  }
+}

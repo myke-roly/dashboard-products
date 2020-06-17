@@ -14,9 +14,8 @@ const Login = ({ history }) => {
     e.preventDefault();
     if(email === '') return;
     try {
-      console.log(history)
       await firebase.logIn(email, password);
-      setTimeout(() => history.replace('/'), 3000);
+      history.replace('/')
     } catch (error) {
       setError(error.message);
       setTimeout(() => setError(''), 5000);

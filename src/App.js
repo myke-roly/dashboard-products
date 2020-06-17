@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Router, Switch, Route } from 'react-router-dom';
 import history from './libs/history';
-import Login from './components/login/login';
-import Home from './components/home/home';
-import NotFound from './components/404/NotFound';
+import Login from './page/login/login';
+import Home from './page/home/home';
+import NotFound from './page/404/NotFound';
 import ProtectedRouter from './libs/protectedRouter';
 
 const App = () => {
-  const [auth] = useState(localStorage.getItem('auth') || null);
+  // eslint-disable-next-line
+  const [auth, setAuth] = useState(localStorage.getItem('auth') || null);
   
   useEffect(() => {
     if(history.location.pathname === '/login' && auth) {
