@@ -1,0 +1,25 @@
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  width: 250px;
+  background: #555;
+  animation: rightSidebar 1s ease;
+  padding: 10vh 0 0 2rem;
+
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    margin: 2rem 0;
+  }
+}
+
+@keyframes rightSidebar {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+
+  to {
+    width: 250px;
+  }
+}

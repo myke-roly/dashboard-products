@@ -1,14 +1,14 @@
 import React from 'react';
 import './styles.scss';
 
-const MenuBurguer = () => {
+const MenuBurguer = ({showSidebar}) => {
   return (
-    <div className="menu__burguer" role="button">
+    <div className="menu__burguer" role="button" onClick={showSidebar}>
       <span></span>
       <span></span>
       <span></span>
     </div>
-  );
+  )
 };
 
 export default MenuBurguer;
