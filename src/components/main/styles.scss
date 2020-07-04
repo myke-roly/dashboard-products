@@ -1,22 +1,64 @@
 @import '../../styles/var';
 
 .main {
-  // border: 1px solid red;
-  width: 90%;
   margin: 2rem auto;
+  width: 98%;
+  background: #fff;
+  // padding: 1rem;
+  box-shadow: 0 0 7px rgba(0, 0, 0, .2);
 
-  .main__items {
-    border: 1px solid $secondary;
-    padding: 1rem;
+  &__items {
+    width: 100%;
 
-    .items--item {
+    &--loading, &--error {
+      padding: 2rem;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    &--list,
+    &--header {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 1rem 0;
-      padding: .5rem;
-      border: 1px solid #c7c3b777;
-      border-radius: 5px;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+      position: relative;
+
+      li {
+        width: 100%;
+        list-style: none;
+        ;
+      }
+    }
+
+    .list--stock,
+    .list--price {
+      text-align: center;
+      width: 100%;
+    }
+
+    .list--options {
+      text-align: end;
+      width: 10px;
+    }
+
+    &--list {
+      color: #333000;
+      font-size: 1.2em;
+    }
+
+    &--header {
+      background: #2c2c2c;
+      color: #eeeeee;
+      text-transform: uppercase;
+      font-weight: bold;
+      // letter-spacing: 1.2px;
+    }
+    
+    &--list:hover {
+      background: #eee;
     }
   }
 }

@@ -1,32 +1,28 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  padding: 0 1rem;
-  padding-top: .5rem;
-  
-  .navbar {
+  width: 100%;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 0 7px rgba(0,0,0,.2);
+
+  .header__top {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    p {
-      font-size: bold;
-      text-transform: uppercase;
+    .header__title {
+      color: #333;
+      font-size: 1.8em;
     }
 
-    button {
-      margin-left: .5rem;
-      color: white;
-      padding: .3rem .5rem;
-      background: #000;
-      font-size: .9em;
-      border: 2px solid #000;
-      cursor: pointer;
+    .header__btn {
+      background-color: #16941c;
+      color: #eee;
+      border-radius: 5px;
+      border-color: #16941c;
+      font-size: 1.3em;
 
       &:hover {
-        background-color: white;
-        color: #333;
+      opacity: .9; 
       }
     }
   }

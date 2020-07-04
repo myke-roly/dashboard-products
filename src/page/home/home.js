@@ -1,30 +1,28 @@
-import React, { useContext, useState, useCallback } from 'react';
+import React, { useContext, useState, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ContextFirebase } from '../../firebase';
 import Header from '../../components/header/header';
+import Main from '../../components/main/main';
 import Sidebar from '../../components/sidebar/sidebar';
-import Main from '../../components/main/Main';
 
 const Home = ({ history }) => {
   const contextFirebase = useContext(ContextFirebase);
   const { firebase, user } = contextFirebase;
 
-  const [showSidebar, setShowSidebar] = useState(true);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
 
   function logOut() {
     firebase.logOut();
     history.replace('/login');
   }
 
-  const handleShowSidebar = useCallback(() => {
-      setShowSidebar(!showSidebar);
-    }, [showSidebar]);
-
   return (
     <div className="home">
-      {/* {showSidebar && <Sidebar />} */}
       <Sidebar />
-      <div className="content">
-        <Header logOut={logOut} showSidebar={handleShowSidebar} user={user} />
+      <div className="container">
+        <Header />
         <Main />
       </div>
     </div>

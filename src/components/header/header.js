@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SearchInput from '../search/search';
 import './styles.scss';
-import MenuBurguer from '../menuBurguer/MenuBurguer';
+import FormAddProduct from '../utils/modalAddProduct/addProducts';
 
-const Header = ({logOut, showSidebar,  user}) => {
+const Header = () => {
+  const [showModalAddProduct, setShowModalAddProduct] = useState(false);
+
+  const toggleModalAddProduct = () => setShowModalAddProduct(!showModalAddProduct);
+  
   return (
     <header className="header">
-      <MenuBurguer showSidebar={showSidebar} />
-      <nav className="navbar">
-        {user !== null && <p>{user.email}</p>}
-        <button onClick={logOut}>Cerrar Sesion</button>
-      </nav>
+    {showModalAddProduct && <FormAddProduct toggleModalAddProduct={toggleModalAddProduct} />}
+      <div className="header__top">
+        <h1 className="header__title">Productos</h1>
+        <button className="btn header__btn" onClick={toggleModalAddProduct}>+ Agregar Producto</button>
+      </div>
+      <SearchInput />
     </header>
   );
 };
 
-export default React.memo(Header);
+export default Header;

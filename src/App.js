@@ -5,24 +5,24 @@ import Login from './page/login/login';
 import Home from './page/home/home';
 import NotFound from './page/404/NotFound';
 import ChatBoot from './page/chat/Chat'
-import ProtectedRouter from './libs/protectedRouter';
+
+import {  firebase } from './firebase';
 
 const App = () => {
-  // eslint-disable-next-line
-  const [auth, setAuth] = useState(localStorage.getItem('auth') || null);
-  
+  const [auth, setAuth] = useState(false);
+ 
   useEffect(() => {
-    if(history.location.pathname === '/login' && auth) {
-        history.replace('/');
-    } 
+    firebase.auth.onAuthStateChanged(user => {
+      if(user) setAuth(true);
+      else setAuth(false)
+    })
   }, [auth]);
 
   return (
     <BrowserRouter>
       <Router history={history}>
         <Switch>
-          <ProtectedRouter exact path="/" auth={auth} component={Home} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={!auth ? Login : Home} />
           <Route path="/chat" component={ChatBoot} />
           <Route path="*" component={NotFound} />
         </Switch>

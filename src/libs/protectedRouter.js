@@ -19,6 +19,6 @@ const ProtectedRouter = ({ component: Component, auth, ...rest}) => {
       }}
     />
   )
-}
+} 
 
 export default ProtectedRouter;

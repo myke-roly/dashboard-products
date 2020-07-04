@@ -12,10 +12,9 @@ const Login = ({ history }) => {
 
   async function logIn(e) {
     e.preventDefault();
-    if(email === '') return;
+    if (email === '') return null;
     try {
       await firebase.logIn(email, password);
-      history.replace('/')
     } catch (error) {
       setError(error.message);
       setTimeout(() => setError(''), 5000);
@@ -33,7 +32,7 @@ const Login = ({ history }) => {
             id="email"
             type="email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form__input">
@@ -43,12 +42,14 @@ const Login = ({ history }) => {
             id="password"
             type="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="setting">
           <a href="!#">Olvidaste tu contraseña</a>
-          <button type="submit" className="btn">{user ? 'Iniciando Sesion...' : 'Iniciar Sesion'}</button>
+          <button type="submit" className="btn">
+            {user ? 'Iniciando Sesion...' : 'Iniciar Sesion'}
+          </button>
         </div>
         {error && <p className="Login__error">{error}</p>}
       </form>

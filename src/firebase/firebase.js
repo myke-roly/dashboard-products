@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 class Firebase {
   constructor() {
-    if(!app.apps.length) {
+    if (!app.apps.length) {
       app.initializeApp(firebaseConfig);
     } else {
     }
@@ -19,17 +19,11 @@ class Firebase {
     await this.auth.signOut();
   }
 
-  resetPassword(email) {
+  resetPassword(email) {}
 
-  }
+  emailVerification() {}
 
-  emailVerification() {
-
-  }
-
-  SMSVerification() {
-
-  }
+  SMSVerification() {}
 }
 
 const firebase = new Firebase();
