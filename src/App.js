@@ -9,8 +9,8 @@ import ChatBoot from './page/chat/Chat'
 import {  firebase } from './firebase';
 
 const App = () => {
-  const [auth, setAuth] = useState(false);
- 
+  const [auth, setAuth] = useState(JSON.stringify(localStorage.getItem('auth')) === 'null' ? false : true);
+  
   useEffect(() => {
     firebase.auth.onAuthStateChanged(user => {
       if(user) setAuth(true);
