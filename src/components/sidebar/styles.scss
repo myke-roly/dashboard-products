@@ -1,15 +1,28 @@
 .sidebar {
   height: 100vh;
-  position: fixed;
-  width: 250px;
-  background: #555;
-  animation: rightSidebar 1s ease;
-  padding: 10vh 0 0 2rem;
+  // position: fixed;
+  width: 300px;
+  background: #f5da90;
+  // animation: rightSidebar .5s ease;
 
-  h1 {
-    color: white;
-    text-transform: uppercase;
-    margin: 2rem 0;
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  .sidebar__wrapper {
+    width: 90%;
+    height: 50vh;
+    margin: 30% auto;
+
+    .sidebar__title {
+      color: white;
+      text-transform: uppercase;
+      // background-color: #d6bd71;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      padding: .5rem 1rem;
+      margin: 1rem 0;
+    }
   }
 }
 

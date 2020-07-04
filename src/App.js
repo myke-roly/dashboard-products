@@ -4,6 +4,7 @@ import history from './libs/history';
 import Login from './page/login/login';
 import Home from './page/home/home';
 import NotFound from './page/404/NotFound';
+import ChatBoot from './page/chat/Chat'
 import ProtectedRouter from './libs/protectedRouter';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Switch>
           <ProtectedRouter exact path="/" auth={auth} component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route path="/chat" component={ChatBoot} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
