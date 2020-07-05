@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchInput from '../search/search';
 import './styles.scss';
-import FormAddProduct from '../utils/modalAddProduct/addProducts';
+import FormAddProduct from './modalAddProduct/addProducts';
 
 const Header = () => {
   const [showModalAddProduct, setShowModalAddProduct] = useState(false);

@@ -1,22 +1,25 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './styles.scss';
 import { MoreVertical } from 'react-feather';
-import ModalOptions from '../utils/modalOptions/options';
+import ModalOptions from './modalOptions/options';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../redux/productos/thunk';
 
 const Main = () => {
   const [showModalOptions, setShowModalOptions] = useState(false);
+  const [itemId, setItemId] = useState('');
+
   const dispatch = useDispatch();
 
-  const toggleOptions = useCallback(() => {
+  // Show modal of product
+  const toggleOptions = useCallback((e) => {
+    setItemId(e.target.id);
     setShowModalOptions(!showModalOptions);
   }, [showModalOptions]);
 
   useEffect(() => {
-    const showProducts = () => dispatch(getProducts())
-    showProducts();
-  }, [dispatch]);
+    dispatch(getProducts());
+  }, []); //eslint-disable-line
 
   const state = useSelector(state => state.products);
 
@@ -36,8 +39,9 @@ const Main = () => {
               <li className="list--title"><input type="checkbox" /> {product.title}</li>
               <li className="list--stock">{product.stock}</li>
               <li className="list--price">$ {product.price}</li>
-              <li className="list--options" onClick={toggleOptions}><MoreVertical color="gray" /></li>
-              {showModalOptions && <ModalOptions />}
+              <li className="list--options" id={product._id} onClick={e => toggleOptions(e)}><MoreVertical /></li>
+              {showModalOptions && itemId === product._id  && <ModalOptions onFocus={() => setShowModalOptions(false)} modalId={product._id} />}
+              {/* {showModalOptions && <ModalOptions modalId={product._id} productId={itemId} />} */}
             </ul>
           )) : <p className="main__items--error">No hay Productos</p>
         }
