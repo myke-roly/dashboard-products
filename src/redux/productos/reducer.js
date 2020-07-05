@@ -1,31 +1,25 @@
-import {
-  GET_PRODUCTS_START,
-  GET_PRODUCTS_ERROR,
-  GET_PRODUCTS_SUCCESS,
-  ADD_PRODUCTS_START,
-  ADD_PRODUCTS_SUCCESS,
-  ADD_PRODUCTS_ERROR,
-} from '../../const/actionTypes';
+import * as actions from '../../const/actionTypes';
 
 const initialSatte = {
   products: [],
   isLoading: true,
   error: null
 }
+
 export const productsReducer = (state = initialSatte, action) => {
   switch (action.type) {
-    case GET_PRODUCTS_START:
+    case actions.GET_PRODUCTS_START:
       return {
         ...state,
         isLoading: true,
       };
-    case GET_PRODUCTS_ERROR:
+    case actions.GET_PRODUCTS_ERROR:
       return {
         ...state,
         isLoading: false,
         products: null
       };
-    case GET_PRODUCTS_SUCCESS:
+    case actions.GET_PRODUCTS_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -38,18 +32,18 @@ export const productsReducer = (state = initialSatte, action) => {
 
 export const addProductReducer = (state = {}, action) => {
   switch (action.type) {
-    case ADD_PRODUCTS_START:
+    case actions.ADD_PRODUCTS_START:
       return {
         ...state,
         isLoading: true,
       };
-    case ADD_PRODUCTS_SUCCESS:
+    case actions.ADD_PRODUCTS_SUCCESS:
       return {
         ...state,
         isLoading: false,
         message: action.payload,
       };
-    case ADD_PRODUCTS_ERROR:
+    case actions.ADD_PRODUCTS_ERROR:
       return {
         ...state,
         isLoading: false,
