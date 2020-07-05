@@ -41,13 +41,38 @@ export const addProductReducer = (state = {}, action) => {
       return {
         ...state,
         isLoading: false,
-        message: action.payload,
+        product: action.payload,
       };
     case actions.ADD_PRODUCTS_ERROR:
       return {
         ...state,
         isLoading: false,
         message: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+// Delete Product
+export const deleteProductReducer = (state = {}, action) => {
+  switch (action.type) {
+    case actions.DELETE_PRODUCTS_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case actions.DELETE_PRODUCTS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        productDeleted: action.payload,
+      };
+    case actions.DELETE_PRODUCTS_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        messageError: action.payload,
       };
     default:
       return state;

@@ -22,20 +22,20 @@ export const successAddProduct = (product) => ({
   type: actions.ADD_PRODUCTS_SUCCESS,
   payload: product
 });
-export const errorAddProduct = () => ({
+export const errorAddProduct = (err) => ({
   type: actions.ADD_PRODUCTS_ERROR,
-  payload: []
+  payload: err
 });
 
 // DELETE PRODUCT 
 export const startDeleteProduct = () => ({
-  type: actions.ADD_PRODUCTS_START,
+  type: actions.DELETE_PRODUCTS_START,
 });
-export const successDeleteroduct = (nameProduct) => ({
-  type: actions.ADD_PRODUCTS_SUCCESS,
+export const successDeleteProduct = (nameProduct) => ({
+  type: actions.DELETE_PRODUCTS_SUCCESS,
   payload: nameProduct
 });
 export const errorDeleteProduct = () => ({
-  type: actions.ADD_PRODUCTS_ERROR,
+  type: actions.DELETE_PRODUCTS_ERROR,
   payload: []
 });
