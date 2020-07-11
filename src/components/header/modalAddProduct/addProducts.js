@@ -6,7 +6,7 @@ import { addProduct } from '../../../redux/productos/thunk';
 
 import Color from './color';
 import { colors } from './colors';
-import { useColor } from './hook';
+import { useColor } from './hooks/useColor';
 
 const FormAddProduct = ({ toggleModalAddProduct }) => {
   
@@ -17,7 +17,7 @@ const FormAddProduct = ({ toggleModalAddProduct }) => {
     title: '',
     price: '',
     stock: '',
-    talles: [],
+    talles: '',
     colors: [],
     description: '',
     images: ['https://p.armam.at/Flag-Bearer-Cap-Multicam-5.11-Tactical-am24310main1.png'],
@@ -30,13 +30,16 @@ const FormAddProduct = ({ toggleModalAddProduct }) => {
 
   const handleChange = (e) => {
     const name = e.target.name;
-    let value = ''
+    let value = e.target.value;
+    let values = '';
+    if(name === 'title') value = value.toUpperCase();
+    if(name === 'price') value = Number(value);
     if(name === 'colors') {
-      value = [...product.colors, e.target.value+'']
+      values = [...product.colors, value+''];
     } else if(name === 'images') {
-      value = [...product.images, e.target.value+'']
-    } else value = e.target.value;
-    setProduct({ ...product, [name]: value });
+      values = [...product.images, value+''];
+    } else values = value;
+    setProduct({ ...product, [name]: values });
   };
 
   const submitForm = async e => {

@@ -33,6 +33,7 @@ export function addProduct(product) {
 
     try {
       const response = await clientAxios('/api/productos', 'POST', product);
+      console.log(response);
       setTimeout(() => dispatch(successAddProduct(response.data)), 1500);
     } catch (error) {
       console.log(error);
