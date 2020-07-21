@@ -36,7 +36,7 @@ const Main = () => {
           ? <p className="main__items--loading">Cargando Productos...</p> 
           : state.products ? state.products.products.map(product => (
             <ul className="main__items--list" key={product._id}>
-              <li className="list--title"><input type="checkbox" /> {product.title}</li>
+              <li className="list--title"><input type="checkbox" /> <span>{product.title}</span></li>
               <li className="list--stock">{product.stock}</li>
               <li className="list--price">$ {product.price}</li>
               <li className="list--options" id={product._id} onClick={e => toggleOptions(e)}><MoreVertical /></li>

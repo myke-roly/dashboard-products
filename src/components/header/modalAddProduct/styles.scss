@@ -38,7 +38,8 @@ form {
   input,
   textarea,
   select,
-  .colors {
+  .colors,
+  .images {
     font-family: Tahoma;
     font-size: 1em;
     color: #555;
@@ -48,7 +49,6 @@ form {
     border: 1px solid #999;
     border-radius: 5px;
     background: transparent;
-    text-transform: uppercase;
   }
 
 
@@ -76,14 +76,14 @@ form {
     .colors__selected {
       display: flex;
       align-items: center;
-      
+
       &--item {
         position: relative;
         width: 4em;
         height: 1.5em;
         display: flex;
         margin-right: .5em;
-  
+
         svg {
           color: red;
           margin-left: .3em;
@@ -105,6 +105,53 @@ form {
       }
     }
 
+  }
+
+  .images {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    input {
+      display: none;
+    }
+
+    .image {
+      position: relative;
+
+      img {
+        border-radius: 5px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+        width: 60px;
+        height: 40px;
+        margin: .5rem;
+      }
+
+      svg {
+        visibility: hidden;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      &:hover {
+        transition: all .3s;
+        transform: scale(1.3);
+        img {
+          opacity: .5
+        }
+        svg {
+          visibility: visible;
+
+        }
+      }
+    }
+  }
+
+  .msg-error {
+    color: red;
+    text-align: center;
   }
 
   .btn {
@@ -133,6 +180,7 @@ form {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
